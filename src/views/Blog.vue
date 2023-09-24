@@ -17,7 +17,8 @@ onBeforeMount(async () => {
 <template>
     <section>
           <div v-for="post in blogStore.posts" :key="post.id" class="">
-            <h2>{{post.title}}</h2>
+            <router-link :to="`/blog/${post.id}`"><h2 class="text-2xl text-red-800 my-5">Title: {{ post.title }}</h2></router-link>
+            
           </div>
     </section>
 </template>
