@@ -1,3 +1,5 @@
+// Post.vue
+
 <script setup>
 import { onBeforeMount } from "vue";
 import useBlogStore from "../store/store";

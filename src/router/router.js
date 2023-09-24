@@ -44,11 +44,12 @@ const routes = [
         }
     },
     {
-        path: '/blog/:id',
+        path: '/blog/:id/:title',
         components: {
             default: Post,
             LeftSideBar: LeftSideBar
-        }
+        },
+        name: 'Post'
     },
     {
         path: '/author/:id',
