@@ -7,7 +7,9 @@ import {ref, reactive, computed} from 'vue'
 const useBlogStore = defineStore('blog', ()=>{
 
     const posts = ref([])
-    let singlePost = ref({})
+    const singlePost = ref({})
+    const singleComment = ref({})
+
 
     const getPosts = async () => {
         const res = await fetch('https://dummyjson.com/posts?limit=10')
@@ -21,12 +23,25 @@ const useBlogStore = defineStore('blog', ()=>{
         const data = await res.json()
         singlePost.value = data
     }
+    
+
+    const getSingleComment = async (id)=>{
+        const res= await fetch (`https://dummyjson.com/posts/${id}/comments`)
+
+        const data = await res.json()
+        singleComment.value = data
+
+    }
+
+
 
     return {
         posts,
         getPosts,
         getSinglePost,
-        singlePost
+        singlePost,
+        getSingleComment,
+        singleComment
     }
 })
 
